@@ -471,7 +471,7 @@ top=4cm,bottom=3cm,left=4.0cm,right=3.0cm]{geometry} %showframe para ver los mar
 	 \vspace*{2cm}
 	  \count1=0
 		  \nohyphens{\@whilenum \count1<\@author \do {
-	       \large{\csname AuthName:\the\count1 \endcsname, \space \csname AuthSurn:\the\count1 \endcsname} \par
+	       \large{\csname AuthName:\the\count1 \endcsname \space \csname AuthSurn:\the\count1 \endcsname} \par
 		\advance\count1 by 1}}
 \end{center}
 \vspace*{1cm}
@@ -538,7 +538,7 @@ top=4cm,bottom=3cm,left=4.0cm,right=3.0cm]{geometry} %showframe para ver los mar
       \setlength{\parindent}{5mm}
       \count1=0
 	  \nohyphens{\@whilenum \count1<\@author \do {
-       \noindent\sloppy\nohyphens{\csname AuthName:\the\count1 \endcsname, \space \csname AuthSurn:\the\count1 \endcsname} \par
+       \noindent\sloppy\nohyphens{\csname AuthName:\the\count1 \endcsname \space \csname AuthSurn:\the\count1 \endcsname} \par
 	\advance\count1 by 1}}
       \nohyphens{\local@title\ /  \local@cityname:
       \count1=0
