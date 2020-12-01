@@ -1,0 +1,147 @@
+% ===== INICIO DEL PREÁMBULO =====
+
+\documentclass[grade,oneside,a4paper]{udelar} % Poner msc para Maestría, dsc para Doctorado.
+
+\usepackage[
+acronyms, 											 %utiliza el glosario de acronimos.
+nohypertypes={acronym,notacion,simbolos,glosario},   %quita los links en el texto al glosario.
+%nonumberlist,                                       %quita los links en los glosarios al texto.
+nogroupskip,                                         %quita los espacios entre diferentes grupos dentro de un glosario.
+nopostdot, 											 %quita el punto final en los acrónimos         .                           
+]{glossaries}
+
+\hypersetup{ colorlinks = true } % false para imprimir, true para ver.
+
+% Ver los documentos de estilos bibliográficos para editar estas siguientes 2 líneas.
+\usepackage{natbib} % Para algunos estilos bibliográficos
+\bibliographystyle{estilos_bibliograficos/natbib/apalike}
+
+ \usepackage{makeidx}
+
+\usepackage{eurosym}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{subcaption}
+
+\loadglossary
+
+% A su vez, la clase udelar.cls ya tiene los siguientes paquetes cargados automáticamente, que podrían ser de interés saber para el usuario:
+% 
+% {color},{hyphenat},{appendix},{lastpage},{babel},{inputenc},{amsmath,amssymb},{ifthen},{graphicx},{caption}
+% {setspace},{tabularx},{eqparbox},{ltxcmds},{titletoc},{xcolor},{lineno},{xwatermark}
+ 
+% Si se quieren agregar más paquetes, se recomienda colocarlos a partir de esta linea y antes de \begin{document}.
+
+
+
+% ===== FIN DEL PREÁMBULO =====
+
+% ===== INICIO DEL DOCUMENTO =====
+
+\begin{document}
+
+% \title{%
+%     PARKIBIP \\
+%   {\Large Retroalimentación activa en la marcha de personas con Enfermedad de Parkinson}\\[1ex]
+%   {\Large Active feedback in the gait of people with Parkinson's disease }%
+% }
+  \title{PARKIBIP}
+  \subtitle{Retroalimentación activa en la marcha de personas con Enfermedad de Parkinson}
+  \institutelogo{0} % Carga cantidad de logos seleccionados, con máximo de 3 logos.
+  \author{Carlos Enrique}{Huerta Santana}
+  \author{Samuel}{Sainz Sanchez}
+
+   \director{}{Franco}{Simini}{Prof.}
+   \codirector{}{Antonio}{Lopez}{Prof.}  % Comentar estas líneas si no son necesarias.
+%   \codirector{Prof.}{Nombre del 2do Codirector}{Apellido}{D.Sc.}
+%   \codirector{Prof.}{Nombre del 3er Codirector}{Apellido}{D.Sc.}
+%   \directoracademico{Prof.}{Nombre del Director Académico de Tesis}{Apellido}{D.Sc.}
+
+  \examiner{Prof.}{Humberto}{Prinzo}{D.Sc.}
+  \examiner{Prof.}{Raquel}{Sosa}{M.Sc.}
+  \examiner{Prof.}{Sebastián}{Pizard}{M.Sc.}
+  
+  \graduatename{Ingeniería en Computación}
+  \institute{Núcleo de Ingeniería Biomédica de las Facultades de Medicina e Ingeniería}{NIB}  % La primer institución es la principal.
+  \institute{Facultad de Ingeniería}{FING}  % Agregar copias de esta línea para agregar instituciones.
+  \graduatelocation{Montevideo}{Uruguay}
+  
+  
+  \date{29}{11}{2020} % Fecha del documento.
+
+  \keyword{Análisis de la marcha}
+  \keyword{Unidad de medición inercial}
+  \keyword{Sensores wereables}
+  \keyword{Biorretroalimentación}
+  \keyword{Enfermedad de Parkinson}
+  
+  \foreignkeyword{Gait analysis}
+  \foreignkeyword{Inertial measurement unit}
+  \foreignkeyword{Wereables sensors}
+  \foreignkeyword{Biofeedback}
+  \foreignkeyword{Parkinson desease}
+        
+  \maketitle  % Comando que genera el título de la tesis.
+
+  \frontmatter  % Comando que genera la portadilla, el catalogo y el tribunal de evaluación. NO COMENTAR
+  
+  \include{ded_agr_epi/dedicacion}
+  \include{ded_agr_epi/agradecimientos}
+  \include{ded_agr_epi/epigrafe}
+  \include{resumen/resumen}
+  \include{resumen/abstract}
+  
+  
+%  \listoffigures	         % Lista de figuras
+%  \listoftables	         % Lista de tablas
+  
+  %\listadesimbolos 		     % Lista de símbolos
+  %\listadenotaciones 	     % Lista de notaciones
+ % \listadesiglas 		     % Lista de siglas
+
+  \tableofcontents           % Tabla de contenidos
+
+  \mainmatter % Comando que genera las listas y capítulos. NO COMENTAR
+  
+  
+  \include{TESIS/capitulos/chap01-Intro} % Se carga el capítulo Introduccion
+  \include{TESIS/capitulos/chap02-Ant} % Se carga el capítulo Fundamentos o antecedentes
+  \include{TESIS/capitulos/chap03-RSBE} % Se carga el capítulo Revisión sistemática
+  \include{TESIS/capitulos/chap04-Project} % Se carga el capítulo Proyecto: Decisiones de diseño
+  \include{TESIS/capitulos/chap05-Impl} % Se carga el capítulo Implementación
+ \include{TESIS/capitulos/chap06-Results} % Se carga el capítulo Experimentación
+ \include{TESIS/capitulos/chap07-ProjectManagement} % Se carga el capítulo Gestión del proyecto 
+ \include{TESIS/capitulos/chap08-Conclusiones} % Se carga el capítulo Conclusiones y trabajo futuro
+ 
+
+  \backmatter % Comando que generalos apéndices, anexos y bibliografía. NO COMENTAR
+  
+  \bibliography{bibliografia}
+  \bibend
+  
+  \glosario 		         % Glosario
+ 
+  
+  \apenarabicnumbering
+  \apenmatter
+ 
+  \input{TESIS/apendice/apendice_manual_usuario}
+  \input{TESIS/apendice/apendice_entidades_db}
+  \input{TESIS/apendice/apendice_tests-cases}
+  \input{TESIS/apendice/apendice_exploratory-tests}
+  \input{TESIS/apendice/apendice_sabi2020}
+  \input{TESIS/apendice/apendice_ConsentimientoInf}
+
+  \anexarabicnumbering
+  \anexmatter
+  \input{TESIS/anexo/anexo_MDS-UPDRS}
+    
+  
+  
+\end{document}
+
+% ===== FIN DEL DOCUMENTO =====

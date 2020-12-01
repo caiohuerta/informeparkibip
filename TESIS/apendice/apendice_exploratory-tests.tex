@@ -1,0 +1,68 @@
+\chapter{Pruebas Exploratorias: Tabla de sesiones exploratorias}\label{apendice:exploratory-tests}
+
+A continuación, se muestra un resumen de las sesiones exploratorias ejecutadas en PARKIBIP. Se pueden ver también los diferentes bugs encontrados a partir de estas sesiones.
+
+\fontsize{9}{11}\selectfont
+\setlength\LTleft{-2.5cm}
+\begin{longtable}{| p{1.5cm} | p{3cm}| p{2cm}| p{1.5cm}| p{4cm} | p{4cm}|}
+\caption{Testing exploratorio basado en sesiones en PARKIBIP. Para cada sesión -TE\_SXXX- se registraron los campos: identificador, misión, áreas, duración de la sesión, notas de prueba, análisis y reporte de errores.
+}\\\hline
+\label{tab:testing-exploratory}
+\textbf{Sesión} & \textbf{Misión} & \textbf{Áreas} & \textbf{Duración} & \textbf{Notas de prueba} & \textbf{Análisis y reporte de error (Bug)} \\ \hline
+\endhead
+TE\_S001 & Validar que un usuario registrado pueda ingresar al sistema y se interpreten los datos del token \textit{JWT} & OS | Oneplus 5t API 28. Funcionalidad | Login & Corta & Se ingresó correctamente a PARKIBIP con el usuario \textit{chuerta}. & Bug\_001. Al descifrar el token, no se encontraron los meta-datos del usuario (e.g. nivel de usuario) \\ \hline
+TE\_S002 & Usabilidad: Verificar validación dinámica de campos en Login. & OS | Oneplus 5t API 28. Funcionalidad | Login & Corta & En la pantalla de inicio de sesión, se digitó el usuario y la contraseña & Bug\_001: El mensaje de error ocupa todo el \textit{layout} y posee fondo gris el cual no sigue el estilo de la aplicación. \\ \hline
+TE\_S003 & Verificar la detección de velocidades cero con MV  y el sensor quieto & OS | Nexus 5X API 24. Funcionalidad | ZVD & Larga & Se inicia la recolección de datos con el sensor estacionario. & Bug\_001: Al principio los resultados fueron los esperado -true-. Luego de cierto tiempo, comenzó con detecciones periódicas. \\ \hline
+TE\_S004 & Verificar la detección de velocidades cero con MV  y el sensor quieto & OS | Nexus 5X API 24. Funcionalidad | ZVD & Larga & Se inicia la recolección de datos con el sensor estacionario. El detector no identifico movimiento &  \\ \hline
+TE\_S005 & Verificar la detección de velocidades cero con MV & OS | Nexus 5X API 24. Funcionalidad | ZVD & Larga & Se inicia la recolección de datos y se realiza una caminata. & Bug\_001: No detecta eventos estacionarios.
+Bug\_002: Comportamiento inadecuado de la cola circular.
+Bug\_003: Luego de cierto tiempo la aplicación se cae. \\ \hline
+TE\_S006 & Verificar la detección de velocidades cero con GLRT y el sensor estacionario & OS | Nexus 5X API 24. Funcionalidad | ZVD & Larga & Se inicia la recolección de datos con el sensor estacionario. & Bug\_001: Alternancia de resultados. Enseguida se cae la aplicación. \\ \hline
+TE\_S007 & Verificar la detección de velocidades cero con GLRT & OS | Nexus 5X API 24. Funcionalidad | ZVD & Larga & Se inicia la recolección de datos y se realiza una caminata. & Bug\_001: Detección continua de eventos de velocidad cero, afinar umbral estadístico
+Bug\_002: Raro. La condición de tamaño de la ventana de medición se supera y crece exponencialmente \\ \hline
+TE\_S008 & Calibración de Orientación & OS | Oneplus 5t API 28. Funcionalidad | Orientation & Larga & Se inicia la recolección de datos y se llama a calibrar el sensor. El IMU en estado estacionario & Bug\_001:  Mantiene el quaternion inicial. La calibración no se esta ejecutando, por ende no lleva al sistema de referencias esperado. \\ \hline
+TE\_S009 & Verificar quaternion calculado por el filtro de Orientación con datos públicos & OS | Oneplus 5t API 28. Funcionalidad | Orientation & Media & Se inicia la recolección de datos y se ejecuta la actualización del filtro de orientación. Los valores son tabulados y comparados con el resultado esperado. Sin inconvenientes &  \\ \hline
+TE\_S010 & Chequear la consolidación de datos a distintas frecuencias & OS | Oneplus 5t API 28. Funcionalidad | Data Fuser & Media & Se inician los productores acelerómetro, giroscopio, magnetómetro. Luego se escribe en consola el resultado de la fusión de datos & Bug\_001: Se pierden datos de magnetómetro -frecuencia mas baja?-. \\ \hline
+TE\_S011 & Revisión de usabilidad: Usuarios & OS | Oneplus 5t API 28. Funcionalidad | Usuarios & Corta & Se accede a la pantalla de Pacientes. & Bug\_001: El buscador y/filtrado no funciona \\ \hline
+TE\_S012 & Revisión de usabilidad: Inicio & OS | Oneplus 5t API 28. Funcionalidad | Inicio & Corta & Se accede a la pantalla de Pacientes y se configuran los dispositivos IMU. & Bug\_001: No se establecen los colores adecuados en los botones, cuyo icono es un pie. Quedan en grises. \\ \hline
+TE\_S013 & Revisión de Usabilidad: Configuraciones & OS | Oneplus 5t API 28. Funcionalidad | Configuración & Media & Se accedió a la sección de configuraciones en búsqueda de defectos de pantalla y estilos. & Bug\_001: El sistema no permitía cambiar la selección de un algoritmo
+Bug\_002: El texto de la unidad del parámetro frecuencia de la aceleración, superpone el campo de edición.
+Bug\_003: Los margenes laterales de las tarjetas de configuración son inadecuados \\ \hline
+TE\_S014 & Modificación de Configuraciones & OS | Oneplus 5t API 28
+Funcionalidad | Configuración & Corta & Se accedió a la sección de configuraciones en búsqueda de inconvenientes en la modificación de parámetros. Se editaron parámetros y luego se guardaron. Seguido fueron restablecidos a los valores por defecto. & Bug\_001: No todos los parámetros se guardaron adecuadamente \\ \hline
+TE\_S015 & Deshacer cambios en curso de Configuraciones & OS | Oneplus 5t API 28. Funcionalidad | Configuración & Corta & Se accedió a la sección de configuraciones. Se editaron parámetros y luego se presiono el botón deshacer cambios &  \\ \hline
+TE\_S016 & Detener una sesión activa PARKIBIP & OS | Nexus 5X API 24. Funcionalidad | Sesión & Larga & Se inicio una sesión de rehabilitación, luego de cierto tiempo se finalizo. El sistema tendría que acceder al resumen de la sesión, pero no redirección a dicha pantalla & Bug\_001: La sesión no se guarda correctamente. Luego el resumen no tiene sesión.
+Bug\_002: Se detectan muchos datos -1714- en el Pool del servicio de fondo que  almacena los datos. Problema de concurrencia \\ \hline
+TE\_S017 & Validar el calculo de la aceleración lineal del Usuario & OS | Nexus 5X API 24.
+Funcionalidad | Aceleración lineal & Larga & Se detecta un comportamiento extraño e inadecuado. Se grafican los datos de aceleración y la misma incrementa de forma lineal, luego baja a 0. Se repite el comportamiento & Bug\_001: Aceleración instantánea del usuario incorrecta. Sugiere defecto en la rotación del vector, y/o en la eliminación de la gravedad , y/o en el computo del filtro de orientación  \\ \hline
+TE\_S018 & Validar la rotación del vector aceleración. Problema aceleración lineal & OS | Nexus 5X API 24.
+Funcionalidad | Aceleración lineal & Larga & Se cargan datos de prueba con el fin de probar la rotación del vector aceleración. Se tabulan en Excel los vectores resultantes de las rotaciones y los sensados. & Bug\_001: Defecto en la rotación del vector. Se debe probar la gravedad y la orientación del filtro  \\ \hline
+TE\_S019 & Validar la rotación del vector aceleración. Problema aceleración lineal & OS | Oneplus 5t API 28. Funcionalidad | Aceleración lineal & Larga & Se cargan datos de prueba con el fin de probar la rotación del vector aceleración. Se chequea la gravedad negativa y positiva para el sensor, luego se tabulan en Excel los vectores resultantes de las rotaciones y los sensados. & Bug\_001: Continua el error en la rotación del vector. \\ \hline
+TE\_S020 & Validar la rotación del vector aceleración. Problema aceleración lineal & OS | Oneplus 5t API 28. Funcionalidad | Aceleración lineal & Larga & Se cargan datos de prueba con el fin de probar la rotación del vector aceleración. Se chequea el quaternion obtenido por Madwick para el sensor de PARKIBIP, luego se tabulan en Excel los vectores resultantes de las rotaciones y los sensados. & Bug\_001: Por alguna razón, el filtro de Orientación computa mal el quaternion, con el sensor de PARKIBIP. Luego la rotación se hace mal. \\ \hline
+TE\_S021 & Verificar quaternion calculado por el filtro de Orientación con Datos de PARKIBIP & OS | Windows 10
+Funcionalidad | Orientación & Larga & Se diseña una aplicación gráfica en el lenguaje c\#, con un cubo en 3D.  Se conectan los IMU y se prueban las rotaciones en tiempo real. Se  prueban los valores de frecuencias altas y bajas (20-200Hz) & Bug\_001: El cubo no rota adecuadamente, se tranca. \\ \hline
+TE\_S022 & Verificar quaternion calculado por el filtro de Orientación con Datos de PARKIBIP & OS | Windows 10
+Funcionalidad | Orientación & Larga & Se diseña una aplicación gráfica en el lenguaje c\#, con un cubo en 3D.  Se conectan los IMU y se prueban las rotaciones en tiempo real. Se  prueba  con el valor de convergencia BETA=0.1, con una frecuencia de 100HZ & Bug\_001: El cubo no rota adecuadamente, se tranca. \\ \hline
+TE\_S023 & Verificar quaternion calculado por el filtro de Orientación con Datos de PARKIBIP & OS | Windows 10
+Funcionalidad | Orientación & Larga & Se diseña una aplicación gráfica en el lenguaje c\#, con un cubo en 3D.  Se conectan los IMU y se prueban las rotaciones en tiempo real. Se  prueba  con el valor de convergencia BETA={0.5,1,3,5,6}, con una frecuencia de 100HZ. Se logran buenos resultados con Beta igual a 5. &  \\ \hline
+TE\_S024 & Revisión de Usabilidad: Sesión activa & OS | Oneplus 5t API 28
+Funcionalidad | Sesión & Larga & Se inicia una sesión de rehabilitación y se observan los resultados & Bug\_001: La gráfica en tiempo real no despliega valores.
+Bug\_002: Su vista es demasiado grande y los colores no se corresponden con los de la aplicación \\ \hline
+TE\_S025 & Revisión de Usabilidad: Sesión activa & OS | Oneplus 5t API 28. Funcionalidad | Sesión & Larga & Se inicia una sesión de rehabilitación y se observan los resultados & Bug\_001: Actualizar la UI por cada medición mata el UI thread \\ \hline
+TE\_S026 & Revisión de Usabilidad: Sesión activa con actualización cada cierta cantidad de datos & OS | Oneplus 5t API 28. Funcionalidad | Sesión & Media & Se inicia una sesión de rehabilitación y se observan los resultados &  \\ \hline
+TE\_S027 & Verificar funcionamiento de Kalman con datos de prueba & OS | Nexus 5X API 24. Funcionalidad | Kalman & Larga & Se levantan los datos en memoria y se itera sobre las mediciones. Se gráfica la velocidad. Problema raro & Bug\_001: Valores inadecuados de velocidad instantánea, conllevan a valores de velocidad promedio altos -9.5- \\ \hline
+TE\_S028 & Verificar funcionamiento de Kalman con datos de prueba. Verificación analítica de vectores y matrices & OS | Nexus 5X API 24. Funcionalidad | Kalman & Larga & Se levantan los datos en memoria y se itera sobre las mediciones. Se chequean las primeras iteraciones para matrices y vectores de forma analítica. Se compara con el resultado del filtro. & Bug\_001: Valores inadecuados de velocidad instantánea, conllevan a valores de velocidad promedio altos -9.5-
+Bug\_002: No se está compensando la orientación \\ \hline
+TE\_S029 & Verificar funcionamiento de Kalman con datos de prueba.  & OS | Oneplus 5t API 28
+Funcionalidad | Kalman & Larga & Se levantan los datos en memoria y se itera sobre las mediciones. Se chequean las primeras iteraciones. Sin embargo continua el problema al graficar la velocidad.  & Bug\_001: Valores inadecuados de velocidad instantánea, conllevan a valores de velocidad promedio altos -9.5- \\ \hline
+TE\_S030 & Verificar funcionamiento de Kalman con datos de prueba.  & OS | Oneplus 5t API 28
+Funcionalidad | Kalman & Larga & Se levantan los datos en memoria y se itera sobre las mediciones. Se chequean las primeras iteraciones. & Bug\_001: El método de orientación requiere radianes  para la velocidad angular. Lo aplica sin tener en cuenta la unidad que recibe. Chequear unidades antes.   \\ \hline
+TE\_S031 & Verificar funcionamiento de Kalman con datos de prueba.  & OS | Nexus 5X API 24.
+Funcionalidad | Kalman & Corta & Se levantan los datos en memoria y se itera sobre las mediciones. Se chequean las primeras iteraciones. &  \\ \hline
+TE\_S032 & Revisión de Usabilidad: Resumen de sesión & OS | Oneplus 5t API 28
+Funcionalidad | Resumen de sesión & Media & Se selecciona una sesión existente en el sistema para visualizar el resumen. & Bug\_001: No se grafica adecuadamente en el resumen general.
+Bug\_002: Los ejes de la gráfica no están alineados
+Bug\_003: El titulo de la vista es incorrecto. Debería decir General
+Bug\_004: El azul de la barra, no es el azul de PARKIBIP. \\ \hline
+\end{longtable}
+\normalsize

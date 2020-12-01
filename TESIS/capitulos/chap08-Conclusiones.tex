@@ -1,0 +1,45 @@
+\chapter{Conclusiones y trabajo futuro}\label{chap:conclusions}
+
+% /En líneas generales/
+
+En líneas generales, este proyecto abarcó todas las fases de una investigación científica -incluso la publicación de un artículo científico-,  así como todas las etapas de elaboración de un sistema de software: relevamiento, prototipado, análisis, definición, diseño, implementación, pruebas y liberación. 
+
+% /Resultados importantes/ 
+%	 /Revisión sistemática/ 
+%	 /Sistema/ 
+
+A través de una revisión sistemática de la literatura, se formó el estado del arte en el área de ``Estudio de la marcha de las personas a través de Unidades de Medición Inercial''. Como consecuencia, se recolectó evidencia empírica y se generó conocimiento sobre las distintas técnicas aplicadas a esta problemática en el \gls{gait_analysis}. Asimismo, se recolectaron datos de distintos estudios publicados en todo el mundo y se estableció un contexto en el área, que sirva como fuente de conocimiento para proyectos innovadores como PARKIBIP. 
+
+Idear, diseñar y desarrollar un sistema wearable cómo PARKIBIP para reeducar la marcha de enfermos de Parkinson, es un avance trascendental en el área de la rehabilitación de la marcha. Se construyó una herramienta que \textbf{acompaña al enfermo en su vida cotidiana}, que \textbf{es accesible para la persona} y que \textbf{complementa el trabajo de rehabilitación del terapeuta}.
+
+% /Complejidad y limitaciones/ /Autocrítica/
+
+Diseñando, implementando y combinando diversos métodos físico-matemáticos para el procesamiento en tiempo real de las mediciones, se constató que existe una inmensa cantidad de posibilidades para crear y combinar algoritmos que permitan mejorar, aún más, la precisión de los parámetros espacio-temporales extraídos por PARKIBIP. A su vez, se aprecia una complejidad inherente en el desarrollo de estos métodos, que deben ser adecuados para un análisis en tiempo real de los datos (i.e medición a medición).
+
+En cuanto a la detección de las fases de la marcha y a la aplicación del biofeedback, objetivo principal del proyecto, se obtuvieron excelentes resultados. Sin embargo, existe una oportunidad de mejora considerable en la extracción de los parámetros espacio-temporales, como lo es la trayectoria. La acumulación del error en el cálculo de la posición, aunque fuera contrarrestada con las actualizaciones de velocidad cero, generó falta de precisión en el cálculo de la trayectoria como para considerarla un buen resultado. A causa de la priorización de tareas y al tiempo acotado en el proyecto -ampliamente extendido a lo planificado-, no se alcanzó ahondar en la corrección de este parámetro.
+
+En virtud del contexto actual generado por la pandemia global de COVID-19, no fueron realizadas sesiones experimentales con enfermos de Parkinson, ya que la gran mayoría de ellos pertenece a la población de riesgo. Estas pruebas, serán de crucial importancia para futuros avances de PARKIBIP. Además, se sugiere la evaluación de los parámetros espacio-temporales estimados por el sistema creado, frente a un sistema de análisis de marcha estándar de oro. 
+
+% /Utilidad y aportes/ 
+
+Con PARKIBIP, se provee una herramienta que permite avanzar en el campo de la biomecánica hacia el entendimiento de \textit{cómo los estímulos externos favorecen la marcha de las personas} con enfermedad de Parkinson. El sistema es capaz de detectar las fases de la marcha en tiempo real, estimular al paciente a través de reglas pre-configuradas y recolectar datos objetivos sobre las características de la marcha de las personas. 
+
+Por lo tanto, es una herramienta de gran utilidad para el terapeuta, quién puede realizar un análisis objetivo respecto a la marcha de cada paciente, y luego evaluar su progreso en el transcurso de la rehabilitación. Además, se puede dar continuidad y seguimiento al trabajo de rehabilitación sin la obligación de concurrir a un centro clínico o tener acceso a un costoso y especializado laboratorio de marcha. 
+
+% /Trabajo a futuro/
+
+Los algoritmos utilizados, si bien logran buenos resultados, son un punto de partida para futuros desarrollos. El avance a pasos agigantados en tecnologías móviles y wearables, genera un extenso terreno fértil para trabajar en el progreso de dichos métodos.
+
+Existen numerosas posibilidades en cuanto a la capacidad que se le puede dar al módulo que establece las reglas de \gls{biofeedback}; y es aquí donde vemos la mayor de las oportunidades de mejora. Se propone la posibilidad de desarrollar nuevas reglas clínicas o de utilizar inteligencia artificial para establecerlas, según las características de la marcha del sujeto que se está evaluando. 
+
+Integrar la aplicación con un servidor capaz de procesar los datos de los pacientes y generar métricas sobre todas sus sesiones, sería una herramienta extremadamente útil para la evaluación clínica. Se podría, además, adjuntar la información de las sesiones a la historia clínica electrónica de la persona para avanzar en la centralización de la información de los pacientes. 
+
+Sería deseable, realizar sesiones experimentales con enfermos de Parkinson previamente seleccionados, planificar dichas sesiones con el fin de comparar para cada paciente sus diversas sesiones.
+
+% /Equipos multidisciplinarios/
+
+Por último, pero no menos importante, a partir de la experiencia PARKIBIP, se puede afirmar que el trabajo multidisciplinario es clave para avances que generen valor en campos como la medicina, acortando la brecha generada a partir de la alta especialización de los profesionales en una única disciplina. 
+
+% /Enfermedad de Parkinson/ 
+
+La enfermedad de Parkinson es un trastorno extremadamente difícil para las personas que la sufren, así como para su núcleo familiar. El hecho de emplear conceptos de los que su aplicación fue puesta en tela de juicio en una temprana etapa de la carrera de Ing. en Computación (e.g. álgebra de matrices o las leyes de Newton), para aportar un pequeño grano de arena a la mejora de su calidad de vida, es -además de gratificante- una lección enriquecedora sobre la aplicación de la Ingeniería. 

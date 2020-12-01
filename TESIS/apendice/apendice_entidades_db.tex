@@ -1,0 +1,163 @@
+\chapter{Entidades de la base de datos relacional SQLite}\label{anexo:db-tables}
+
+A continuación se presentan las distintas entidades de la base de datos con su correspondiente estructura:
+
+\begin{table}[H] 
+\caption{User}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdUser & integer & PK  \\ \hline
+Name & text &   \\ \hline
+LastName & text &   \\ \hline
+CI & text &   \\ \hline
+Age & integer & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{Session}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdSession & integer & PK  \\ \hline
+MinutesDuration & integer & null  \\ \hline
+Date & text & null  \\ \hline
+IdUser & integer & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{Measurement}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdMeasurement & integer & PK  \\ \hline
+Ax & real & null  \\ \hline
+Ay & real & null  \\ \hline
+Az & real & null  \\ \hline
+Gx & real & null  \\ \hline
+Gy & real & null  \\ \hline
+Gz & real & null  \\ \hline
+Mx & real & null  \\ \hline
+My & real & null  \\ \hline
+Mz & real & null  \\ \hline
+Foot & text & null  \\ \hline
+Timestamp & text & null  \\ \hline
+IdSession & integer & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{KalmanFilterState}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdState & integer & PK  \\ \hline
+IdSession & integer &   \\ \hline
+pX & real & null  \\ \hline
+pY & real & null  \\ \hline
+pZ & real & null  \\ \hline
+vX & real & null  \\ \hline
+vY & real & null  \\ \hline
+vZ & real & null  \\ \hline
+roll & real & null  \\ \hline
+pitch & real & null  \\ \hline
+heading & real & null  \\ \hline
+ConnectionId & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{ZeroUpdates}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdZeroUpdate & integer & PK  \\ \hline
+IdSession & integer &   \\ \hline
+ZValue & integer &   \\ \hline
+ConnectionId & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{SessionResult}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdSession & integer & PK  \\ \hline
+IdParameter & integer & PK  \\ \hline
+Value & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{GeneralSetting}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdGeneralSetting & integer & PK  \\ \hline
+Key & text &   \\ \hline
+Value & text &   \\ \hline
+Icon & text & null  \\ \hline
+DefaultValue & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{AlgorithmDetection}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdAlgorithmDetection & integer & PK  \\ \hline
+AlgorithmName & text &   \\ \hline
+AlgorithmDescription & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{AlgorithmParameter}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdAlgorithmParameter & integer & PK  \\ \hline
+ParameterName & text & null  \\ \hline
+ParameterValue & text & null  \\ \hline
+IdAlgorithmDetection & integer & null  \\ \hline
+Icon & text & null  \\ \hline
+DefaultValue & text & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{Parameter}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdParameter & integer & PK  \\ \hline
+Description & text & null  \\ \hline
+IdUnity & integer & null  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H] 
+\caption{Unity}
+\centering
+\begin{tabular}{| p{4cm} | p{3cm} | p{3cm}|}
+\hline
+\textbf{Column name} & \textbf{Type} & \textbf{Properties}  \\ \hline
+IdUnity & integer & PK  \\ \hline
+MeasurementUnity & text & null  \\ \hline
+Type & text & null  \\ \hline
+\end{tabular}
+\end{table}
